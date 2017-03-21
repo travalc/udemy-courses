@@ -38,7 +38,7 @@ class App extends Component {
         this.setState({minutes: 0, seconds: 0})
       }
     }
-    if (minutes > 0) {
+    if (minutes > 0) {  
       if (seconds > 0) {
         newSeconds = seconds - 1;
         this.setState({seconds: newSeconds});

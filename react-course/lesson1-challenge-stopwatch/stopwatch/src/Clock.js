@@ -2,17 +2,9 @@ import React, { Component } from 'react';
 import './App.css';
 
 class Clock extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-
-
   leading0(num) {
     return num < 10 ? '0' + num : num;
   }
-
-
 
   render() {
     return (

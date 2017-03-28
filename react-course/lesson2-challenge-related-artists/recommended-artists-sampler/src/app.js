@@ -13,8 +13,10 @@ class App extends Component {
   }
   search() {
     const BASE_URL = 'https://api.spotify.com/v1/search';
-    let SEARCH_URL = `${BASE_URL}?q=${this.state.query}&type=artist&limit=1`;
-    fetch(SEARCH_URL, {
+    const ALBUM_URL = 'https://api.spotify.com/v1/artists/';
+    let artistArray = [];
+    let search_url = `${BASE_URL}?q=${this.state.query}&type=artist&limit=1`;
+    fetch(search_url, { //Get information for searched artist
       method: 'GET'
     })
     .then(response => response.json())
@@ -23,13 +25,41 @@ class App extends Component {
       this.setState({searchArtist: artist});
       console.log(this.state.searchArtist);
       let RA_URL = `https://api.spotify.com/v1/artists/${artist.id}/related-artists`;
-      fetch(RA_URL, {
+      fetch(RA_URL, { //get information on related artists
         method: 'GET'
       })
       .then(response => response.json())
       .then(json => {
-        console.log(json);
+
+        json.artists.forEach(item => { //get top track for each artist
+          let image = item.images[0].url;
+          let name = item.name;
+          var topTrack;
+          let ra_album_url = `${ALBUM_URL}${item.id}/top-tracks?country=US&`;
+          console.log(item);
+          fetch(ra_album_url, {
+            method: 'GET'
+          })
+          .then(response => response.json())
+          .then(json => {
+            topTrack = json.tracks[0];
+            let relatedArtist = {
+              name: name,
+              image: image,
+              topTrack: topTrack
+            };
+            artistArray.push(relatedArtist);
+            if (artistArray.length === 20) {
+              this.setState({relatedArtists: artistArray});
+              console.log(this.state.relatedArtists);
+            }
+
+          })
+
+        })
+
       })
+
     })
 
 

@@ -9,23 +9,26 @@ class SearchedArtist extends Component {
       images: [{url:''}]
     }
     artist = this.props.artist !== null ? this.props.artist : artist;
+    const SA_CLASSES = "SearchedArtist col-md-6"
     return (
-      <div className="SearchedArtist">
-        <img
-          alt={artist.name}
-          src={artist.images[0].url}
-        />
-        <h2 className="searchedArtistName">{artist.name}</h2>
-        <p>Genres</p>
-        <ul className="genreList">
-          {
-            artist.genres.map((genre, k) => {
-              return (
-                <li key={k}>{genre}</li>
-              )
-            })
-          }
-        </ul>
+      <div className={SA_CLASSES}>
+          <h4 className="searchedArtistName">{artist.name}</h4>
+          <div className="imageDiv">
+            <img
+              alt={artist.name}
+              src={artist.images[0].url}
+              />
+          </div>
+          <p>Genres</p>
+          <ul className="genreList">
+            {
+              artist.genres.map((genre, k) => {
+                return (
+                  <li key={k}>{genre}</li>
+                )
+              })
+            }
+          </ul>
       </div>
     )
   }

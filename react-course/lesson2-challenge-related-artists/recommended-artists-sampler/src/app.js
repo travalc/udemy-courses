@@ -65,8 +65,9 @@ class App extends Component {
 
   }
   render() {
+    const APP_CLASSES = "App container-fluid"
     return (
-      <div className="App">
+      <div className={APP_CLASSES}>
         <div className="App-title">Recommended Artists Sampler</div>
         <FormGroup>
           <InputGroup>
@@ -86,28 +87,28 @@ class App extends Component {
             </InputGroup.Addon>
           </InputGroup>
         </FormGroup>
-
-        {
-          this.state.searchArtist !== null
-          ?
-            <div>
-              <SearchedArtist
-                artist = {this.state.searchArtist}
-              />
-            </div>
-          : <div></div>
-        }
-        {
-          //this.state.relatedArtists !== null
-          //?
-            //<div>
-              //<RelatedArtists
-                //artists = {this.state.relatedArtists}
-              ///>
-            //</div>
-          //: <div></div>
-        }
-
+        <div className="row">
+          {
+            this.state.searchArtist !== null
+            ?
+              <div>
+                <SearchedArtist
+                  artist={this.state.searchArtist}
+                  />
+                  </div>
+                  : <div></div>
+                }
+                {
+                  //this.state.relatedArtists !== null
+                  //?
+                  //<div>
+                  //<RelatedArtists
+                  //artists = {this.state.relatedArtists}
+                  ///>
+                  //</div>
+                  //: <div></div>
+                }
+        </div>
       </div>
     )
   }

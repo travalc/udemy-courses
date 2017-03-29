@@ -9,12 +9,16 @@ body {
 }
 
 .SearchedArtist {
+  .imageDiv {
+    text-align: left;
+  }
   img {
     border-radius: 50%;
-    height: 450px;
-    width: 450px;
+    height: 225px;
+    width: 225px;
+    margin-left: 0;
   }
-  .genreList {
+  .genreList, p, h4 {
     text-align: left;
   }
 }

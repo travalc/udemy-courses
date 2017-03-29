@@ -6,11 +6,14 @@ body {
   background: #000;
   color: #fff; }
 
+.SearchedArtist .imageDiv {
+  text-align: left; }
 .SearchedArtist img {
   border-radius: 50%;
-  height: 450px;
-  width: 450px; }
-.SearchedArtist .genreList {
+  height: 225px;
+  width: 225px;
+  margin-left: 0; }
+.SearchedArtist .genreList, .SearchedArtist p, .SearchedArtist h4 {
   text-align: left; }
 
 /*# sourceMappingURL=App.css.map */

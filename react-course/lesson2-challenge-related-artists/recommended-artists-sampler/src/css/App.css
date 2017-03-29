@@ -3,17 +3,18 @@
   padding: 5%; }
 
 body {
-  background: #000;
+  background: #6fa3f7;
   color: #fff; }
 
-.SearchedArtist .imageDiv {
-  text-align: left; }
-.SearchedArtist img {
-  border-radius: 50%;
-  height: 225px;
-  width: 225px;
-  margin-left: 0; }
-.SearchedArtist .genreList, .SearchedArtist p, .SearchedArtist h4 {
-  text-align: left; }
+.SearchedArtist {
+  padding: 2px 5px 2px 5px; }
+  .SearchedArtist .imageDiv {
+    text-align: left; }
+  .SearchedArtist img {
+    height: 300px;
+    width: 300px;
+    margin-left: 0; }
+  .SearchedArtist .genreList, .SearchedArtist p, .SearchedArtist h4 {
+    text-align: left; }
 
 /*# sourceMappingURL=App.css.map */

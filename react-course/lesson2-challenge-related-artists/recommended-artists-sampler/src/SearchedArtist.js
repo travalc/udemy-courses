@@ -9,16 +9,19 @@ class SearchedArtist extends Component {
       images: [{url:''}]
     }
     artist = this.props.artist !== null ? this.props.artist : artist;
-    const SA_CLASSES = "SearchedArtist col-md-6"
+    const SA_CLASSES = "SearchedArtist row";
     return (
       <div className={SA_CLASSES}>
-          <h4 className="searchedArtistName">{artist.name}</h4>
-          <div className="imageDiv">
-            <img
-              alt={artist.name}
-              src={artist.images[0].url}
+        <div className="col-md-6">
+            <h4 className="searchedArtistName">{artist.name}</h4>
+            <div className="imageDiv">
+              <img
+                alt={artist.name}
+                src={artist.images[0].url}
               />
-          </div>
+            </div>
+        </div>
+        <div className="col-md-6">
           <p>Genres</p>
           <ul className="genreList">
             {
@@ -29,6 +32,7 @@ class SearchedArtist extends Component {
               })
             }
           </ul>
+        </div>
       </div>
     )
   }

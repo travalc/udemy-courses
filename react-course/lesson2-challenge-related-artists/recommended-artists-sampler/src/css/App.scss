@@ -4,18 +4,20 @@
 }
 
 body {
-  background: #000;
+  background: #6fa3f7;
   color: #fff;
 }
 
 .SearchedArtist {
+
+  padding: 2px 5px 2px 5px;
+  
   .imageDiv {
     text-align: left;
   }
   img {
-    border-radius: 50%;
-    height: 225px;
-    width: 225px;
+    height: 300px;
+    width: 300px;
     margin-left: 0;
   }
   .genreList, p, h4 {

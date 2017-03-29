@@ -22,10 +22,37 @@ body {
   flex-wrap: wrap;
   flex-direction: row;
   padding: 5px; }
-  .RelatedArtists .relatedArtist {
-    margin: 4px; }
-    .RelatedArtists .relatedArtist .raImage {
+  .RelatedArtists .imageDiv {
+    margin: 4px;
+    display: inline-block;
+    position: relative;
+    cursor: pointer; }
+    .RelatedArtists .imageDiv .raImage {
       height: 150px;
-      width: 150px; }
+      width: 150px;
+      object-fit: cover; }
+    .RelatedArtists .imageDiv .playControl {
+      position: absolute;
+      text-align: center;
+      font-size: 25px;
+      background-color: black;
+      border-radius: 30px;
+      width: 60px;
+      height: 60px;
+      color: white;
+      padding-top: 13px;
+      bottom: 35px;
+      left: 35px;
+      opacity: 0; }
+    .RelatedArtists .imageDiv .playControl:hover {
+      opacity: 0.8;
+      animation-name: fade-in;
+      animation-duration: 0.5s; }
+
+@keyframes fade-in {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 0.8; } }
 
 /*# sourceMappingURL=App.css.map */

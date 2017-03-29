@@ -49,17 +49,23 @@ class RelatedArtists extends Component {
         <div className="RelatedArtists">
           {
             relatedArtists.map((artist, k) => {
-
-
-
               return (
                 <div className="relatedArtist" key={k}>
+                <div className="imageDiv" onClick={() => this.playTrack(artist.topTrack, artist.trackURL)}>
                   <img
                     className="raImage"
                     src={artist.image}
                     alt={artist.name}
-                    onClick={() => this.playTrack(artist.topTrack, artist.trackURL)}
+
                   />
+                  <div className="playControl">
+                    {
+                      this.state.currentTrack === artist.trackURL && this.state.playing === true
+                        ? <span>| |</span>
+                        : <span>&#9654;</span>
+                    }
+                  </div>
+                  </div>
                   <h6>{artist.name}</h6>
                 </div>
               )

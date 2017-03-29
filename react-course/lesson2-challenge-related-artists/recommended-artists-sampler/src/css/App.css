@@ -17,4 +17,15 @@ body {
   .SearchedArtist .genreList, .SearchedArtist p, .SearchedArtist h4 {
     text-align: left; }
 
+.RelatedArtists {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  padding: 5px; }
+  .RelatedArtists .relatedArtist {
+    margin: 4px; }
+    .RelatedArtists .relatedArtist .raImage {
+      height: 150px;
+      width: 150px; }
+
 /*# sourceMappingURL=App.css.map */

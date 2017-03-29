@@ -11,7 +11,7 @@ body {
 .SearchedArtist {
 
   padding: 2px 5px 2px 5px;
-  
+
   .imageDiv {
     text-align: left;
   }
@@ -22,5 +22,19 @@ body {
   }
   .genreList, p, h4 {
     text-align: left;
+  }
+}
+
+.RelatedArtists {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  padding: 5px;
+  .relatedArtist {
+    margin: 4px;
+    .raImage {
+      height: 150px;
+      width: 150px;
+    }
   }
 }

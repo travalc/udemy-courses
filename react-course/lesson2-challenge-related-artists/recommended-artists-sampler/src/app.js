@@ -45,10 +45,12 @@ class App extends Component {
           .then(response => response.json())
           .then(json => {
             topTrack = json.tracks[0];
+            let audio = new Audio(topTrack.preview_url);
             let relatedArtist = {
               name: name,
               image: image,
-              topTrack: topTrack
+              topTrack: audio,
+              trackURL: topTrack.preview_url
             };
             artistArray.push(relatedArtist);
             console.log(numberOfArtists);
@@ -94,24 +96,24 @@ class App extends Component {
             this.state.searchArtist !== null
             ?
 
-                <SearchedArtist
-                  artist={this.state.searchArtist}
-                />
+              <SearchedArtist
+                artist={this.state.searchArtist}
+              />
 
-                  : <div></div>
-                }
+            : <div></div>
+            }
 
-                {
-                  this.state.relatedArtists !== null && this.state.searchArtist !== null
-                  ?
-                    <div>
-                      <RelatedArtists
-                        relatedArtists={this.state.relatedArtists}
-                        artist={this.state.searchArtist}
-                      />
-                    </div>
-                  : <div></div>
-                }
+            {
+              this.state.relatedArtists !== null && this.state.searchArtist !== null
+              ?
+                <div>
+                  <RelatedArtists
+                    relatedArtists={this.state.relatedArtists}
+                    artist={this.state.searchArtist}
+                  />
+                </div>
+              : <div></div>
+            }
 
       </div>
     )

@@ -7,25 +7,57 @@ class RelatedArtists extends Component {
     this.state = {
       currentTrack:'',
       playing: false,
-
+      audio: null
     }
+  }
+  playTrack(audio, url) {
+    if (this.state.playing === false) {
+      audio.play();
+      this.setState({
+        currentTrack: url,
+        playing: true,
+        audio
+      });
+    } else {
+      if (this.state.currentTrack === url) {
+        this.state.audio.pause();
+        this.setState({
+          playing: false
+        });
+      } else {
+        this.state.audio.pause();
+        audio.play();
+        this.setState({
+          playing: true,
+          currentTrack: url,
+          audio
+        })
+      }
+    }
+  }
+  componentWillUnmount() {
+    this.state.audio.pause();
   }
   render() {
     const relatedArtists = this.props.relatedArtists;
     const searchedArtist = this.props.artist;
-    console.log(relatedArtists);
+    console.log(this.props);
     return (
       <div>
         <h2>Artists Similar To {searchedArtist.name}</h2>
         <div className="RelatedArtists">
           {
             relatedArtists.map((artist, k) => {
+
+
+
               return (
                 <div className="relatedArtist" key={k}>
                   <img
                     className="raImage"
                     src={artist.image}
                     alt={artist.name}
+                    onClick={() => this.playTrack(artist.topTrack, artist.trackURL)}
                   />
                   <h6>{artist.name}</h6>
                 </div>

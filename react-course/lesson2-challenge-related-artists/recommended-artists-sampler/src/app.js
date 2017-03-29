@@ -31,9 +31,11 @@ class App extends Component {
       })
       .then(response => response.json())
       .then(json => {
+        console.log(json);
+        const numberOfArtists = json.artists.length;
 
         json.artists.forEach(item => { //get top track for each artist
-          let image = item.images[0].url;
+          let image = item.images.length > 0 ? item.images[0].url : 'http://www.acsu.buffalo.edu/~rslaine/imageNotFound.jpg';
           let name = item.name;
           var topTrack;
           let ra_album_url = `${ALBUM_URL}${item.id}/top-tracks?country=US&`;
@@ -49,7 +51,8 @@ class App extends Component {
               topTrack: topTrack
             };
             artistArray.push(relatedArtist);
-            if (artistArray.length === 20) {
+            console.log(numberOfArtists);
+            if (artistArray.length === numberOfArtists) {
               this.setState({relatedArtists: artistArray});
             }
 
@@ -74,7 +77,7 @@ class App extends Component {
               type="text"
               placeholder="Enter an artist name"
               value={this.state.query}
-              onChange={event => {this.setState({query: event.target.value})}}
+              onChange={event => {this.setState({query: event.target.value, searchArtist: null, relatedArtists: []})}}
               onKeyPress={event => {
                 if (event.key === 'Enter') {
                   this.search();
@@ -97,7 +100,7 @@ class App extends Component {
 
                   : <div></div>
                 }
-                
+
                 {
                   this.state.relatedArtists !== null && this.state.searchArtist !== null
                   ?

@@ -72,7 +72,7 @@ class App extends Component {
     const APP_CLASSES = "App container-fluid"
     return (
       <div className={APP_CLASSES}>
-        <div className="App-title"><h1>Recommended Artists Sampler</h1></div>
+        <div className="App-title"><h1>Spotify Recommended Artists Sampler</h1></div>
         <FormGroup>
           <InputGroup>
             <FormControl

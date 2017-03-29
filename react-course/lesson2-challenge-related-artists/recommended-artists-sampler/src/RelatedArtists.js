@@ -7,7 +7,6 @@ class RelatedArtists extends Component {
     this.state = {
       currentTrack:'',
       playing: false,
-      audio: null
     }
   }
   playTrack(audio, url) {
@@ -36,7 +35,9 @@ class RelatedArtists extends Component {
     }
   }
   componentWillUnmount() {
-    this.state.audio.pause();
+    if (this.state.audio) {
+      this.state.audio.pause();
+    }
   }
   render() {
     const relatedArtists = this.props.relatedArtists;

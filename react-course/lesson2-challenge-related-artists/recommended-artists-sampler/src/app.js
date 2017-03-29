@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { FormGroup, FormControl, InputGroup, Glyphicon } from 'react-bootstrap';
 import SearchedArtist from './SearchedArtist';
-//import RelatedArtists from './RelatedArtists';
+import RelatedArtists from './RelatedArtists';
 import './css/App.css'
 
 class App extends Component {
@@ -51,7 +51,6 @@ class App extends Component {
             artistArray.push(relatedArtist);
             if (artistArray.length === 20) {
               this.setState({relatedArtists: artistArray});
-              console.log(this.state);
             }
 
           })
@@ -98,16 +97,17 @@ class App extends Component {
 
                   : <div></div>
                 }
-                <hr/>
+                
                 {
-                  //this.state.relatedArtists !== null
-                  //?
-                  //<div>
-                  //<RelatedArtists
-                  //artists = {this.state.relatedArtists}
-                  ///>
-                  //</div>
-                  //: <div></div>
+                  this.state.relatedArtists !== null && this.state.searchArtist !== null
+                  ?
+                    <div>
+                      <RelatedArtists
+                        relatedArtists={this.state.relatedArtists}
+                        artist={this.state.searchArtist}
+                      />
+                    </div>
+                  : <div></div>
                 }
 
       </div>

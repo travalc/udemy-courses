@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { FormGroup, FormControl, InputGroup, Glyphicon } from 'react-bootstrap';
+import SearchedArtist from './SearchedArtist';
+//import RelatedArtists from './RelatedArtists';
 import './css/App.css'
 
 class App extends Component {
@@ -23,7 +25,6 @@ class App extends Component {
     .then(json => {
       const artist = json.artists.items[0];
       this.setState({searchArtist: artist});
-      console.log(this.state.searchArtist);
       let RA_URL = `https://api.spotify.com/v1/artists/${artist.id}/related-artists`;
       fetch(RA_URL, { //get information on related artists
         method: 'GET'
@@ -36,7 +37,6 @@ class App extends Component {
           let name = item.name;
           var topTrack;
           let ra_album_url = `${ALBUM_URL}${item.id}/top-tracks?country=US&`;
-          console.log(item);
           fetch(ra_album_url, {
             method: 'GET'
           })
@@ -51,7 +51,7 @@ class App extends Component {
             artistArray.push(relatedArtist);
             if (artistArray.length === 20) {
               this.setState({relatedArtists: artistArray});
-              console.log(this.state.relatedArtists);
+              console.log(this.state);
             }
 
           })
@@ -86,6 +86,28 @@ class App extends Component {
             </InputGroup.Addon>
           </InputGroup>
         </FormGroup>
+
+        {
+          this.state.searchArtist !== null
+          ?
+            <div>
+              <SearchedArtist
+                artist = {this.state.searchArtist}
+              />
+            </div>
+          : <div></div>
+        }
+        {
+          //this.state.relatedArtists !== null
+          //?
+            //<div>
+              //<RelatedArtists
+                //artists = {this.state.relatedArtists}
+              ///>
+            //</div>
+          //: <div></div>
+        }
+
       </div>
     )
   }

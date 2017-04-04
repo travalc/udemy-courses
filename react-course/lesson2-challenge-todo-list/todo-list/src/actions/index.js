@@ -1,15 +1,18 @@
 import { ADD_TODO, DELETE_TODO, DELETE_ALL } from '../constants';
 
-export const addTodo = () => {
+export const addTodo = (item, date) => {
   const action = {
-    type: ADD_TODO
+    type: ADD_TODO,
+    item,
+    date
   }
   return action;
 }
 
-export const deleteTodo = () => {
+export const deleteTodo = (id) => {
   const action = {
-    type: DELETE_TODO
+    type: DELETE_TODO,
+    id
   }
   return action;
 }

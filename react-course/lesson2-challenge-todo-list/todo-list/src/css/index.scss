@@ -1,3 +1,9 @@
 body {
   background: #a0d1ef;
 }
+
+.ListComponent {
+  .todoItem {
+    display: inline-block;
+  }
+}

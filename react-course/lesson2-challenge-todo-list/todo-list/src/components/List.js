@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { deleteTodo, deleteAll } from '../actions'
+import { deleteTodo, deleteAll } from '../actions';
+import moment from 'moment';
 
 class List extends Component {
   constructor(props) {
@@ -20,7 +21,7 @@ class List extends Component {
                 <li key={todo.id} className="todo list-group-item">
                   <div className="todo-item">
                     <span>{todo.item} </span>
-                    <span>{todo.date}</span>
+                    <span><em>{moment(new Date(todo.date)).fromNow()}</em></span>
                   </div>
                   <div className="todo-item close-icon" onClick={() => this.props.parent.deleteTodo(todo.id)}>
                     <span>&#x2715;</span>

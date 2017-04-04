@@ -1,13 +1,7 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { deleteTodo, deleteAll } from '../actions';
 import moment from 'moment';
 
 class List extends Component {
-  constructor(props) {
-    super(props);
-  }
   deleteTodo(id) {
     this.props.parent.deleteTodo(id);
   }

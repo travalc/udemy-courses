@@ -13,14 +13,17 @@ class App extends Component {
     }
   }
   addTodo() {
-    this.props.addTodo(this.state.item, this.state.date);
+    this.state.item !== '' && this.state.date !== ''
+      ?
+        this.props.addTodo(this.state.item, this.state.date)
+      : alert('Please enter an item and date')
   }
   render() {
     console.log(this.props);
     return (
       <div className="AppComponent">
         <h1>React/Redux Todo List</h1>
-        <div className="form-inline">
+        <div className="form-inline entry-info">
           <div className="form-group">
             <input
               className="form-control"
@@ -32,14 +35,23 @@ class App extends Component {
               type="datetime-local"
               onChange={event => this.setState({date: event.target.value})}
             />
+            <button
+              type="button"
+              className="btn btn-success"
+              onClick={() => this.addTodo()}
+            >
+            Submit
+            </button>
+            <button
+              type="button"
+              className="btn btn-danger delete-button"
+              onClick={() => this.props.deleteAll()}
+              >
+              Delete All
+              </button>
           </div>
-          <button
-            type="button"
-            className="btn btn-success"
-            onClick={() => this.addTodo()}
-          >
-          Submit
-          </button>
+
+
         </div>
         <List parent={this.props}/>
       </div>

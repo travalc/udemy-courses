@@ -2,8 +2,42 @@ body {
   background: #a0d1ef;
 }
 
+.AppComponent {
+  align-items: center;
+  .entry-info {
+    align-items: center;
+    display: flex;
+    flex-direction: column
+  }
+  input {
+    margin: 5px
+  }
+  h1 {
+    text-align: center;
+    display: block;
+  }
+  .delete-button {
+    margin: 5px;
+  }
+}
+
 .ListComponent {
-  .todoItem {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+  .close-icon {
+    float: right;
+    color: #cc1414
+
+  }
+  .close-icon:hover {
+    cursor: pointer;
+  }
+  .todo {
+    margin: 5px;
+  }
+  .todo-item {
     display: inline-block;
   }
 }

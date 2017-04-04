@@ -13,13 +13,13 @@ class List extends Component {
   render() {
     return(
       <div className="ListComponent">
-        <ul>
+        <ul className="list-group col-sm-4">
           {
             this.props.parent.todos.map(todo =>{
               return (
-                <li key={todo.id} className="todo">
+                <li key={todo.id} className="todo list-group-item">
                   <div className="todo-item">
-                    <span>{todo.item}</span>
+                    <span>{todo.item} </span>
                     <span>{todo.date}</span>
                   </div>
                   <div className="todo-item close-icon" onClick={() => this.props.parent.deleteTodo(todo.id)}>
@@ -30,13 +30,6 @@ class List extends Component {
             })
           }
         </ul>
-        <button
-          type="button"
-          className="btn btn-danger"
-          onClick={() => this.props.parent.deleteAll()}
-        >
-          Delete All
-        </button>
       </div>
     )
   }

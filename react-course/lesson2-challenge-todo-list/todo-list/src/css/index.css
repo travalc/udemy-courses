@@ -1,7 +1,33 @@
 body {
   background: #a0d1ef; }
 
-.ListComponent .todoItem {
-  display: inline-block; }
+.AppComponent {
+  align-items: center; }
+  .AppComponent .entry-info {
+    align-items: center;
+    display: flex;
+    flex-direction: column; }
+  .AppComponent input {
+    margin: 5px; }
+  .AppComponent h1 {
+    text-align: center;
+    display: block; }
+  .AppComponent .delete-button {
+    margin: 5px; }
+
+.ListComponent {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin: 5px; }
+  .ListComponent .close-icon {
+    float: right;
+    color: #cc1414; }
+  .ListComponent .close-icon:hover {
+    cursor: pointer; }
+  .ListComponent .todo {
+    margin: 5px; }
+  .ListComponent .todo-item {
+    display: inline-block; }
 
 /*# sourceMappingURL=index.css.map */

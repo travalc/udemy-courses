@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { addTodo, deleteTodo, deleteAll } from '../actions';
 import List from './List';
 
 class App extends Component {
@@ -43,6 +44,16 @@ class App extends Component {
         }
       </div>
     )
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({addTodo, deleteTodo, deleteAll}, dispatch);
+}
+
+function mapStateToProps() {
+  return {
+    todos: state
   }
 }
 

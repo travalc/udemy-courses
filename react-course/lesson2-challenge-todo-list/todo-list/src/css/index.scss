@@ -26,18 +26,36 @@ body {
   display: flex;
   flex-direction: column;
   margin: 5px;
-  .close-icon {
-    float: right;
-    color: #cc1414
-
-  }
-  .close-icon:hover {
-    cursor: pointer;
-  }
-  .todo {
+  .list-group-item {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-right: 0;
     margin: 5px;
+    .todo-item {
+      display: inline-block;
+    }
+    .todo-text {
+      flex-grow: 10;
+    }
+    .option-buttons {
+      float: right;
+      margin-right: 0;
+      flex-grow: 1;
+      .delete-icon {
+        margin-left: 5px;
+        color: #b70b2a;
+      }
+      .edit-icon {
+        color: #e5e830;
+      }
+      .delete-icon:hover, .edit-icon:hover {
+        cursor: pointer;
+      }
+    }
   }
-  .todo-item {
-    display: inline-block;
-  }
+
+
+
+
 }

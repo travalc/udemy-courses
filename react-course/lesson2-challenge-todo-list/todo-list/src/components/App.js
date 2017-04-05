@@ -27,7 +27,7 @@ class App extends Component {
           <div className="form-group">
             <input
               className="form-control"
-              placeholder="Please enter a todo item"
+              placeholder="Enter a todo!"
               onChange={event => this.setState({item: event.target.value})}
             />
             <input

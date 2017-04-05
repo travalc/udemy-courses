@@ -20,14 +20,26 @@ body {
   display: flex;
   flex-direction: column;
   margin: 5px; }
-  .ListComponent .close-icon {
-    float: right;
-    color: #cc1414; }
-  .ListComponent .close-icon:hover {
-    cursor: pointer; }
-  .ListComponent .todo {
+  .ListComponent .list-group-item {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-right: 0;
     margin: 5px; }
-  .ListComponent .todo-item {
-    display: inline-block; }
+    .ListComponent .list-group-item .todo-item {
+      display: inline-block; }
+    .ListComponent .list-group-item .todo-text {
+      flex-grow: 10; }
+    .ListComponent .list-group-item .option-buttons {
+      float: right;
+      margin-right: 0;
+      flex-grow: 1; }
+      .ListComponent .list-group-item .option-buttons .delete-icon {
+        margin-left: 5px;
+        color: #b70b2a; }
+      .ListComponent .list-group-item .option-buttons .edit-icon {
+        color: #e5e830; }
+      .ListComponent .list-group-item .option-buttons .delete-icon:hover, .ListComponent .list-group-item .option-buttons .edit-icon:hover {
+        cursor: pointer; }
 
 /*# sourceMappingURL=index.css.map */

@@ -13,12 +13,17 @@ class List extends Component {
             this.props.parent.todos.map(todo =>{
               return (
                 <li key={todo.id} className="todo list-group-item">
-                  <div className="todo-item">
+                  <div className="todo-item todo-text">
                     <span>{todo.item} </span>
                     <span><em>{moment(new Date(todo.date)).fromNow()}</em></span>
                   </div>
-                  <div className="todo-item close-icon" onClick={() => this.props.parent.deleteTodo(todo.id)}>
+                  <div className="option-buttons">
+                  <div className="edit-icon todo-item">
+                    <span className="glyphicon glyphicon-pencil"></span>
+                  </div>
+                  <div className="delete-icon todo-item" onClick={() => this.props.parent.deleteTodo(todo.id)}>
                     <span>&#x2715;</span>
+                  </div>
                   </div>
                 </li>
               )

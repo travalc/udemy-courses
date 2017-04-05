@@ -26,17 +26,21 @@ body {
   display: flex;
   flex-direction: column;
   margin: 5px;
+  .todo-edit {
+    .cancel-icon {
+      color: #b70b2a;
+    }
+    .cancel-icon:hover {
+      cursor: pointer;
+    }
+  }
   .list-group-item {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     padding-right: 0;
     margin: 5px;
-    .todo-edit {
-      .cancel-icon {
-        color: #b70b2a;
-      }
-    }
+
     .todo-item {
       display: inline-block;
     }

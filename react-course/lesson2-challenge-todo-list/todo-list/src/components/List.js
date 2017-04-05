@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import moment from 'moment';
 
 class List extends Component {
-  deleteTodo(id) {
-    this.props.parent.deleteTodo(id);
-  }
   render() {
     return(
       <div className="ListComponent">

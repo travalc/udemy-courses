@@ -53,7 +53,6 @@ const todos = (state = [], action) => {
       return todos;
     case TOGGLE_VISIBILITY:
       todos = updateVisibility(state, action.id, action.visibility);
-      
       return todos;
     default:
       return state;

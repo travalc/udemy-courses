@@ -20,14 +20,16 @@ body {
   display: flex;
   flex-direction: column;
   margin: 5px; }
+  .ListComponent .todo-edit .cancel-icon {
+    color: #b70b2a; }
+  .ListComponent .todo-edit .cancel-icon:hover {
+    cursor: pointer; }
   .ListComponent .list-group-item {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     padding-right: 0;
     margin: 5px; }
-    .ListComponent .list-group-item .todo-edit .cancel-icon {
-      color: #b70b2a; }
     .ListComponent .list-group-item .todo-item {
       display: inline-block; }
     .ListComponent .list-group-item .todo-text {

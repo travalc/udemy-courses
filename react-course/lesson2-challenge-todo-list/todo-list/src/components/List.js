@@ -22,9 +22,10 @@ class List extends Component {
                     >
                       <span className="glyphicon glyphicon-pencil"></span>
                     </div>
-                    <div className="delete-icon todo-item glyphicon glyphicon-trash"
+                    <div className="delete-icon todo-item"
                          onClick={() => this.props.parent.deleteTodo(todo.id)}
                     >
+                      <span className="glyphicon glyphicon-trash"></span>
                     </div>
                   </div>
                 </li>
@@ -33,30 +34,33 @@ class List extends Component {
             }
             else {
               return (
-                <li key={todo.id}>
-                <div className="todo-edit form-inline">
-                  <div className="form-group">
-                    <input
-                      className="form-control edit-item-input"
-                      placeholder={todo.item}
-                    />
-                    <input
-                      className="form-control edit-date-input"
-                      type="datetime-local"
-                      placeholder={todo.date}
-                    />
-                    <span
-                      className="save-icon glyphicon glyphicon-ok"
-                    >
-                    </span>
-                    <span
-                      className="cancel-icon"
-                      onClick={() => this.props.parent.toggleVisibility(todo.id, true)}
-                    >
-                      &#x2715;
-                    </span>
-                  </div>
-                </div>
+                <li key={todo.id} className="list-group-item">
+
+
+                      <input
+                        className="form-control edit-item-input"
+                        placeholder={todo.item}
+                      />
+                      <input
+                        className="form-control edit-date-input"
+                        type="datetime-local"
+                        placeholder={todo.date}
+                      />
+
+                    <div className="edit-buttons todo-item">
+                      <span
+                        className="save-icon glyphicon glyphicon-ok"
+                      >
+                      </span>
+                      <span
+                        className="cancel-icon"
+                        onClick={() => this.props.parent.toggleVisibility(todo.id, true)}
+                      >
+                        &#x2715;
+                      </span>
+                    </div>
+
+
                 </li>
               )
             }

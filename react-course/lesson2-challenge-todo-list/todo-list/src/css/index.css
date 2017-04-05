@@ -20,9 +20,17 @@ body {
   display: flex;
   flex-direction: column;
   margin: 5px; }
-  .ListComponent .todo-edit .cancel-icon {
-    color: #b70b2a; }
-  .ListComponent .todo-edit .cancel-icon:hover {
+  .ListComponent .todo-item {
+    display: inline-block; }
+  .ListComponent .edit-item-input, .ListComponent .edit-date-input {
+    flex-grow: 4; }
+  .ListComponent .edit-buttons {
+    margin-right: 0;
+    flex-grow: 1; }
+  .ListComponent .cancel-icon {
+    color: #b70b2a;
+    margin-left: 5px; }
+  .ListComponent .cancel-icon:hover {
     cursor: pointer; }
   .ListComponent .list-group-item {
     display: flex;
@@ -30,19 +38,16 @@ body {
     flex-wrap: wrap;
     padding-right: 0;
     margin: 5px; }
-    .ListComponent .list-group-item .todo-item {
-      display: inline-block; }
-    .ListComponent .list-group-item .todo-text {
-      flex-grow: 10; }
-    .ListComponent .list-group-item .option-buttons {
-      float: right;
-      margin-right: 0;
-      flex-grow: 1; }
-      .ListComponent .list-group-item .option-buttons .delete-icon {
-        margin-left: 5px; }
-      .ListComponent .list-group-item .option-buttons .edit-icon {
-        color: #e5e830; }
-      .ListComponent .list-group-item .option-buttons .delete-icon:hover, .ListComponent .list-group-item .option-buttons .edit-icon:hover {
-        cursor: pointer; }
+  .ListComponent .todo-text {
+    flex-grow: 10; }
+  .ListComponent .option-buttons {
+    flex-grow: 1; }
+    .ListComponent .option-buttons .delete-icon {
+      margin-left: 10px; }
+    .ListComponent .option-buttons .edit-icon {
+      color: #e5e830;
+      width: 14px; }
+    .ListComponent .option-buttons .delete-icon:hover, .ListComponent .option-buttons .edit-icon:hover {
+      cursor: pointer; }
 
 /*# sourceMappingURL=index.css.map */

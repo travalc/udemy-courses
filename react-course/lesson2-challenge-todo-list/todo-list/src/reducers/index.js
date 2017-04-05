@@ -15,44 +15,37 @@ const deleteTodoById = (state = [], id) => {
   return todos;
 }
 
-const updateVisibility = (state = [], id, visibility) => {
-  let updatedTodo = null;
-  let todos = [];
-  for (let i = 0; i < state.length; i++) {
-    if(state[i].id !== id) {
-      todos.push(state[i]);
+const updateVisibility = (state = [], id, item, date, visibility) => {
+  return state.map(todo => {
+    if (todo.id !== id) {
+      return todo;
     }
-    else if (state[i].id === id) {
-      updatedTodo = {
-        item: state[i].item,
-        date: state[i].date,
+    else if (todo.id === id) {
+      return {
+        item: item,
+        date: date,
         visible: visibility,
         id: id
       };
-      todos.push(updatedTodo);
     }
-  }
-  return todos;
+  });
+
 }
 
 const updateTodo = (state = [], updatedText, updatedDate, id) => {
-  let updatedTodo = null;
-  let todos = [];
-  for (let i = 0; i < state.length; i++) {
-    if (state[i].id !== id) {
-      todos.push(state[i]);
+  return state.map(todo => {
+    if (todo.id !== id) {
+      return todo;
     }
-    else if (state[i].id === id) {
-      updatedTodo = {
+    else if (todo.id === id) {
+      return {
         item: updatedText,
         date: updatedDate,
         visible: true,
         id: id
-      }
-      todos.push(updatedTodo);
+      };
     }
-  }
-  return todos;
+  });
 }
 
 const todos = (state = [], action) => {
@@ -72,10 +65,11 @@ const todos = (state = [], action) => {
       bake_cookie('todos', todos);
       return todos;
     case TOGGLE_VISIBILITY:
-      todos = updateVisibility(state, action.id, action.visibility);
+      todos = updateVisibility(state, action.id, action.item, action.date, action.visibility);
       return todos;
     case EDIT_TODO:
       todos = updateTodo(state, action.editText, action.editDate, action.id);
+      bake_cookie('todos', todos);
       return todos;
     default:
       return state;

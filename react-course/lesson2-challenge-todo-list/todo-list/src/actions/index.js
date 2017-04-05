@@ -23,10 +23,12 @@ export const deleteAll = () => {
   }
 }
 
-export const toggleVisibility = (id, visibility) => {
+export const toggleVisibility = (id, item, date, visibility) => {
   return {
     type: TOGGLE_VISIBILITY,
-    id,
+    id: id,
+    item: item,
+    date: date,
     visibility: visibility
   }
 }

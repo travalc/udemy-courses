@@ -16,10 +16,10 @@ class App extends Component {
     this.state.item !== '' && this.state.date !== ''
       ?
         this.props.addTodo(this.state.item, this.state.date)
-      : alert('Please enter an item and date')
+      : alert('Please enter an item and date');
   }
   render() {
-    console.log(this.props);
+
     return (
       <div className="AppComponent">
         <h1>React/Redux Todo List</h1>

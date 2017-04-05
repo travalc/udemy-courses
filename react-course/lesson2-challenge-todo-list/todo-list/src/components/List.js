@@ -9,7 +9,15 @@ class List extends Component {
       editDate: ''
     }
   }
+  editTodo(id) {
+    this.props.parent.editTodo(this.state.editText, this.state.editDate, id);
+    this.setState({
+      editText: '',
+      editDate: ''
+    })
+  }
   render() {
+    console.log(this.props.parent.todos);
     return(
       <div className="ListComponent">
         <ul className="list-group col-sm-4">
@@ -25,7 +33,7 @@ class List extends Component {
                   </div>
                   <div className="option-buttons">
                     <div className="edit-icon todo-item"
-                         onClick={() => this.props.parent.toggleVisibility(todo.id, false)}
+                         onClick={() => this.props.parent.toggleVisibility(todo.id, todo.item, todo.date, false)}
                     >
                       <span className="glyphicon glyphicon-pencil"></span>
                     </div>
@@ -59,12 +67,12 @@ class List extends Component {
                     <div className="edit-buttons todo-item">
                       <span
                         className="save-icon glyphicon glyphicon-ok"
-                        onClick={() => this.props.parent.editTodo(this.state.editText, this.state.editDate, todo.id)}
+                        onClick={() => this.editTodo(todo.id)}
                       >
                       </span>
                       <span
                         className="cancel-icon"
-                        onClick={() => this.props.parent.toggleVisibility(todo.id, true)}
+                        onClick={() => this.props.parent.toggleVisibility(todo.id, todo.item, todo.date, true)}
                       >
                         &#x2715;
                       </span>

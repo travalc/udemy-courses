@@ -20,6 +20,9 @@ body {
   display: flex;
   flex-direction: column;
   margin: 5px; }
+  .ListComponent .past-due {
+    margin-left: 15px;
+    color: #f21a1a; }
   .ListComponent .todo-item {
     display: inline-block; }
   .ListComponent .edit-item-input, .ListComponent .edit-date-input {

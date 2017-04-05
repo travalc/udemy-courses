@@ -26,6 +26,10 @@ body {
   display: flex;
   flex-direction: column;
   margin: 5px;
+  .past-due {
+    margin-left: 15px;
+    color: #f21a1a;
+  }
   .todo-item {
     display: inline-block;
   }

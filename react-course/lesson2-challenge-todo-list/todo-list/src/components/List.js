@@ -17,19 +17,26 @@ class List extends Component {
     })
   }
   render() {
-    console.log(this.props.parent.todos);
     return(
       <div className="ListComponent">
         <ul className="list-group col-sm-4">
           {
             this.props.parent.todos.map(todo => {
               if (todo.visible === true) {
-
+                let todoDate = new Date(todo.date);
+                let convertedDate = todoDate.getTime();
               return (
                 <li key={todo.id} className="todo list-group-item">
                   <div className="todo-item todo-text">
                     <span className="todo-text">{todo.item} </span>
                     <span><em>{moment(new Date(todo.date)).fromNow()}</em></span>
+                    {
+
+                      (Date.now() - convertedDate) > 0
+                        ?
+                          <span className="past-due">PAST DUE!</span>
+                        : <div></div>
+                    }
                   </div>
                   <div className="option-buttons">
                     <div className="edit-icon todo-item"

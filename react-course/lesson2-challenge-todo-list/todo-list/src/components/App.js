@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { addTodo, deleteTodo, deleteAll } from '../actions';
+import { addTodo, deleteTodo, deleteAll, toggleVisibility } from '../actions';
 import List from './List';
 
 class App extends Component {
@@ -60,7 +60,7 @@ class App extends Component {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({addTodo, deleteTodo, deleteAll}, dispatch);
+  return bindActionCreators({addTodo, deleteTodo, deleteAll, toggleVisibility}, dispatch);
 }
 
 function mapStateToProps(state) {

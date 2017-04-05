@@ -1,4 +1,4 @@
-import { ADD_TODO, DELETE_TODO, DELETE_ALL } from '../constants';
+import { ADD_TODO, DELETE_TODO, DELETE_ALL, TOGGLE_VISIBILITY } from '../constants';
 
 export const addTodo = (item, date) => {
   const action = {
@@ -20,5 +20,13 @@ export const deleteTodo = (id) => {
 export const deleteAll = () => {
   return {
     type: DELETE_ALL
+  }
+}
+
+export const toggleVisibility = (id, visibility) => {
+  return {
+    type: TOGGLE_VISIBILITY,
+    id,
+    visibility: visibility
   }
 }

@@ -2,6 +2,13 @@ import React, { Component } from 'react';
 import moment from 'moment';
 
 class List extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      editText: '',
+      editDate: ''
+    }
+  }
   render() {
     return(
       <div className="ListComponent">
@@ -40,16 +47,19 @@ class List extends Component {
                       <input
                         className="form-control edit-item-input"
                         placeholder={todo.item}
+                        onChange={event => this.setState({editText: event.target.value})}
                       />
                       <input
                         className="form-control edit-date-input"
                         type="datetime-local"
                         placeholder={todo.date}
+                        onChange={event => this.setState({editDate: event.target.value})}
                       />
 
                     <div className="edit-buttons todo-item">
                       <span
                         className="save-icon glyphicon glyphicon-ok"
+                        onClick={() => this.props.parent.editTodo(this.state.editText, this.state.editDate, todo.id)}
                       >
                       </span>
                       <span

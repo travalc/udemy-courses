@@ -1,4 +1,4 @@
-import { ADD_TODO, DELETE_TODO, DELETE_ALL, TOGGLE_VISIBILITY } from '../constants';
+import { ADD_TODO, DELETE_TODO, DELETE_ALL, TOGGLE_VISIBILITY, EDIT_TODO } from '../constants';
 import { bake_cookie, read_cookie } from 'sfcookies';
 
 const todo = (action) => {
@@ -35,6 +35,26 @@ const updateVisibility = (state = [], id, visibility) => {
   return todos;
 }
 
+const updateTodo = (state = [], updatedText, updatedDate, id) => {
+  let updatedTodo = null;
+  let todos = [];
+  for (let i = 0; i < state.length; i++) {
+    if (state[i].id !== id) {
+      todos.push(state[i]);
+    }
+    else if (state[i].id === id) {
+      updatedTodo = {
+        item: updatedText,
+        date: updatedDate,
+        visible: true,
+        id: id
+      }
+      todos.push(updatedTodo);
+    }
+  }
+  return todos;
+}
+
 const todos = (state = [], action) => {
   let todos = null;
   state = read_cookie('todos');
@@ -53,6 +73,9 @@ const todos = (state = [], action) => {
       return todos;
     case TOGGLE_VISIBILITY:
       todos = updateVisibility(state, action.id, action.visibility);
+      return todos;
+    case EDIT_TODO:
+      todos = updateTodo(state, action.editText, action.editDate, action.id);
       return todos;
     default:
       return state;

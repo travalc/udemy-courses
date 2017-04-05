@@ -30,7 +30,7 @@ body {
   .ListComponent .cancel-icon {
     color: #b70b2a;
     margin-left: 5px; }
-  .ListComponent .cancel-icon:hover {
+  .ListComponent .save-icon:hover, .ListComponent .cancel-icon:hover {
     cursor: pointer; }
   .ListComponent .list-group-item {
     display: flex;
@@ -41,9 +41,10 @@ body {
   .ListComponent .todo-text {
     flex-grow: 10; }
   .ListComponent .option-buttons {
+    margin-left: 10px;
     flex-grow: 1; }
     .ListComponent .option-buttons .delete-icon {
-      margin-left: 10px; }
+      margin-left: 5px; }
     .ListComponent .option-buttons .edit-icon {
       color: #e5e830;
       width: 14px; }

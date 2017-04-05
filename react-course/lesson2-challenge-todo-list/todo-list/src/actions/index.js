@@ -1,4 +1,4 @@
-import { ADD_TODO, DELETE_TODO, DELETE_ALL, TOGGLE_VISIBILITY } from '../constants';
+import { ADD_TODO, DELETE_TODO, DELETE_ALL, TOGGLE_VISIBILITY, EDIT_TODO } from '../constants';
 
 export const addTodo = (item, date) => {
   const action = {
@@ -28,5 +28,14 @@ export const toggleVisibility = (id, visibility) => {
     type: TOGGLE_VISIBILITY,
     id,
     visibility: visibility
+  }
+}
+
+export const editTodo = (editText, editDate, id) => {
+  return {
+    type: EDIT_TODO,
+    editText,
+    editDate,
+    id
   }
 }

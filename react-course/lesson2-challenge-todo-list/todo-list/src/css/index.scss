@@ -41,7 +41,7 @@ body {
       color: #b70b2a;
       margin-left: 5px;
     }
-    .cancel-icon:hover {
+    .save-icon:hover, .cancel-icon:hover {
       cursor: pointer;
     }
 
@@ -59,10 +59,10 @@ body {
     }
     .option-buttons {
 
-
+      margin-left: 10px;
       flex-grow: 1;
       .delete-icon {
-        margin-left: 10px;
+        margin-left: 5px;
       }
       .edit-icon {
         color: #e5e830;

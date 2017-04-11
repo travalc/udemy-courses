@@ -11,6 +11,7 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.props.state);
     return (
       <div style={{margin: '5px'}}>
         <h3>Goal Coach</h3>
@@ -34,8 +35,10 @@ class App extends Component {
 }
 
 function mapStateToProps(state) {
-  //console.log('state', state);
-  return {}
+
+  return {
+    state
+  }
 }
 
 export default connect(mapStateToProps, null)(App);

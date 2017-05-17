@@ -31,7 +31,9 @@ axios.get(geocodeUrl).then((response) => {
 }).then((response) => {
   var temperature = response.data.currently.temperature;
   var apparentTemperature = response.data.currently.apparentTemperature;
-  console.log(`It's currently ${temperature}. It feels like ${apparentTemperature}.`);
+  var humidity = response.data.currently.humidity;
+  var summary = response.data.currently.summary;
+  console.log(`It's currently ${summary} with a temperature of ${temperature} degrees and it feels like ${apparentTemperature} degrees. The current humidity is at ${humidity.toString().slice(2, humidity.toString().length)}%.`);
 }).catch((e) => {
   if (e.code === 'ENOTFOUND') {
     console.log('Unable to connect to API servers.');

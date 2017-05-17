@@ -8,6 +8,7 @@ const argv = yargs
       demand: true,
       alias: 'address',
       describe: 'Address to fetch weather for',
+      default: 94545,
       string: true
     }
   })
